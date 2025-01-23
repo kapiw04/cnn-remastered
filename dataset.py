@@ -18,7 +18,7 @@ def get_trainloader(batch_size):
     train = MNIST(
         root="data", train=True, download=True, transform=transform_pipeline
     )  # 60000
-    return DataLoader(train, batch_size=batch_size, shuffle=True)
+    return DataLoader(train, batch_size=batch_size, shuffle=True, num_workers=11)
 
 
 def get_testloader(batch_size):
@@ -33,4 +33,4 @@ def get_testloader(batch_size):
     test = MNIST(
         root="data", train=False, download=True, transform=transform_pipeline
     )  # 10000
-    return DataLoader(test, batch_size=batch_size, shuffle=True)
+    return DataLoader(test, batch_size=batch_size, shuffle=False, num_workers=11)
